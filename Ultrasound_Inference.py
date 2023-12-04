@@ -25,7 +25,7 @@ def f1_metric(y_true, y_pred):
     recall = true_positives / (possible_positives + K.epsilon())
     f1_val = 2*(precision*recall)/(precision+recall+K.epsilon())
     return f1_val
-path='C:/Users/Mohammed/OneDrive - KFUPM/KAIMRC/model_croped40/1/c.ckpt'
+path=input("your model checkpoint")
 model=load_model(path,custom_objects={'f1_metric':f1_metric})
 with open('C:/Users/Mohammed/OneDrive - KFUPM/KAIMRC/dset3/dset0.pkl','rb') as f:  # Python 3: open(..., 'rb')
     _,_,te1bb,te1mm,_,_ = pickle.load(f)
