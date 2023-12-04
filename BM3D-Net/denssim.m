@@ -1,4 +1,4 @@
-  load('C:\Users\Mohammed\Downloads\BM3D-master1\BM3D-master\neuralweights_sig50.mat');
+  load('\neuralweights_sig50.mat');
   w = {};
   w{1} = single(w_1);
   w{2} = single(w_2);
@@ -12,15 +12,16 @@ model.weightsSig = 2;
 % the denoising stride. Smaller is better, but is computationally 
 % more expensive.
 model.step = 4;
-
-%s=dir('E:\Dataset_BUSI\Dataset_BUSI_with_GT\*\*).png');
-s=dir("C:\Users\Mohammed\OneDrive - Georgia Institute of Technology\Set12_noisy\Set12_noisy\*.png");
+%% Add your images
+s=dir(\*.png");
 %%
+%%where to write your denoised images
+folder=
 for i = 1:numel(s)
 
      path=fullfile(s(i).folder,s(i).name);
        im_noisy=(imread(path));
      b1=fNeural(im_noisy, 50, model,w);
-     imwrite(mat2gray(b1),fullfile(string(s(i).folder).replace("Set12_noisy\Set12_noisy","Set12_noisy\Set12_d"),s(i).name));
+     imwrite(mat2gray(b1),fullfile(folder,s(i).name));
 
 end
