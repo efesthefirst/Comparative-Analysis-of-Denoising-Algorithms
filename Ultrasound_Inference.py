@@ -27,7 +27,7 @@ def f1_metric(y_true, y_pred):
     return f1_val
 path=input("your model checkpoint")
 model=load_model(path,custom_objects={'f1_metric':f1_metric})
-with open('C:/Users/Mohammed/OneDrive - KFUPM/KAIMRC/dset3/dset0.pkl','rb') as f:  # Python 3: open(..., 'rb')
+with open(input("your testing sets as numpy"),'rb') as f:  # Python 3: open(..., 'rb')
     _,_,te1bb,te1mm,_,_ = pickle.load(f)
     
 ## These are samples names for benign class and malignant class 
